@@ -1,6 +1,6 @@
 # django-register
 
-How to create Django Authentication registaration and login system
+How to create Django Authentication registration  and login system
 
 First install python3 + 
 
