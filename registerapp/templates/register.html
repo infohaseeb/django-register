@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login User</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+}
+
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+
+.container {
+  padding: 16px;
+}
+
+
+
+}
+</style>
+</head>
+<body>
+
+
+
+<form action="/click_user" method="post">
+                {% csrf_token %}
+                <h3 >Register User</h3>
+
+            
+  <div class="container">
+<div>
+                <label ><b>Username: </b></label>
+                <input type="text" name="username" placeholder="Enter Username" required>
+              </div>
+              <div>
+
+                <label ><b>Email: <b></label>
+                <input type="text" name="email" placeholder="Enter Email" required>
+              </div>
+              <div>
+
+                <label ><b>Password: </b></label>
+                <input type="password" name="password" placeholder="Enter Password" required></div>
+    
+                 <input type="submit" class="button" value="Register">
+
+                          <a href="/loginuser" class="button">Log in </a>
+
+
+<div>
+                        {% if messages %}
+                        {% for message in messages %}
+                        {% if message.tags == 'success' %}
+                         {{ message }}
+
+                        {% elif message.tags == 'error' %}
+                        {{ message }}
+
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+  
+
+
+            </div>
+                </form>
+
+</body>
+</html>

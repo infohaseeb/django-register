@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login User</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+}
+
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+
+.container {
+  padding: 16px;
+}
+
+
+
+}
+</style>
+</head>
+<body>
+
+
+<form action="/clicklogin" method="post">
+                {% csrf_token %}
+                
+<h2>Login  User</h2>
+  <div class="container">
+    <div>
+    <label for="username"><b>Username: </b></label>
+    <input type="text" placeholder="Enter Username" name="username" required>
+  </div>
+<div>
+    <label for="password"><b>Password: </b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
+    <div>
+    <div>    
+<input type="Submit" class="button" value="Log In">
+
+<a href="/register_user" class="button">Register User</a>
+</div>
+
+
+                          {% for message in messages %}
+                          {% if message.tags == 'error' %}
+                            {{ message }}
+                            {% endif %}
+                           {% endfor %}
+                           
+                   
+    
+  </div>
+
+                 
+ 
+</form>
+
+</body>
+</html>
